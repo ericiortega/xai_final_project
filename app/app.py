@@ -11,7 +11,10 @@ from models.bert_model import positivity_score, predict_label
 from models.shap_explainer import get_token_importances
 
 
-# ading theme here 
+# -------------------------------------------------------------------
+# THEME / CSS
+# -------------------------------------------------------------------
+
 
 def inject_css():
     st.markdown(
@@ -46,19 +49,35 @@ def inject_css():
         }
 
         /* -----------------------------------------------------------
-           HEADER
+           HEADER (HERO BAR)
         ----------------------------------------------------------- */
+        .app-header-shell {
+            background: linear-gradient(135deg,
+                        rgba(59,130,246,0.35),
+                        rgba(15,23,42,0.98));
+            border-radius: 24px;
+            border: 1px solid rgba(148,163,184,0.55);
+            padding: 14px 20px;
+            box-shadow: 0 18px 45px rgba(0,0,0,0.65);
+            margin-bottom: 1.6rem;
+        }
+
         .app-header {
             display:flex;
             justify-content:space-between;
             align-items:center;
-            margin-bottom:1.4rem;
         }
 
         .app-header-left {
             display:flex;
             align-items:center;
             gap:1rem;
+        }
+
+        .app-header-right {
+            display:flex;
+            align-items:center;
+            gap:0.6rem;
         }
 
         .logo-pill {
@@ -194,7 +213,7 @@ def inject_css():
 
 
         /* -----------------------------------------------------------
-           EXAMPLE BUTTONS (NO MORE WHITE)
+           EXAMPLE BUTTONS (NO WHITE)
         ----------------------------------------------------------- */
         .example-btn .stButton > button {
             width: 100%;
@@ -253,6 +272,35 @@ def inject_css():
 
 
         /* -----------------------------------------------------------
+           MINI STATS (POS / NEG / NEUTRAL COUNTS)
+        ----------------------------------------------------------- */
+        .mini-stat-row {
+            display:flex;
+            gap:10px;
+            margin-top:1rem;
+        }
+
+        .mini-stat {
+            flex:1;
+            padding:10px 12px;
+            border-radius:18px;
+            background:rgba(15,23,42,0.98);
+            border:1px solid rgba(148,163,184,0.45);
+            font-size:0.8rem;
+        }
+
+        .mini-label {
+            color:#9ca3af;
+            margin-bottom:3px;
+        }
+
+        .mini-value {
+            font-size:0.95rem;
+            font-weight:500;
+        }
+
+
+        /* -----------------------------------------------------------
            SHAP TOKEN PILL
         ----------------------------------------------------------- */
         .token-pill {
@@ -266,7 +314,6 @@ def inject_css():
 
         /* -----------------------------------------------------------
            GLOBAL BUTTON OVERRIDE (kills ALL white Streamlit buttons)
-           This is the fix you asked for.
         ----------------------------------------------------------- */
         button[kind="secondary"] {
             background: rgba(24,31,47,0.85) !important;
@@ -350,22 +397,26 @@ def main():
     # ------------------------------- HEADER ---------------------------------
     st.markdown(
         """
-        <div class="app-header">
+        <div class="app-header-shell">
+          <div class="app-header">
             <div class="app-header-left">
-                <div class="logo-pill">☻</div>
-                <div>
-                    <div class="app-title-main" style="font-weight:600; font-size:1.1rem;">
-                        Explainable Sentiment Analyzer
-                    </div>
-                    <div class="app-title-sub" style="font-size:0.82rem; color:#9ca3af;">
-                        AI-powered interpretable sentiment analysis
-                    </div>
+              <div class="logo-pill">☻</div>
+              <div>
+                <div class="app-title-main" style="font-weight:600; font-size:1.1rem;">
+                  Explainable Sentiment Analyzer
                 </div>
+                <div class="app-title-sub" style="font-size:0.82rem; color:#e5e7eb;">
+                  AI-powered interpretable sentiment analysis
+                </div>
+              </div>
             </div>
-            <div class="badge-chip">
+            <div class="app-header-right">
+              <div class="badge-chip">
                 <div class="badge-dot"></div>
                 <span>BERT + SHAP</span>
+              </div>
             </div>
+          </div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -511,7 +562,7 @@ def main():
             # Mini stats
             st.markdown(
                 f"""
-                <div style="display:flex; gap:10px; margin-top:1rem;">
+                <div class="mini-stat-row">
                     <div class="mini-stat">
                         <div class="mini-label">Positive words</div>
                         <div class="mini-value">{pos_count}</div>
@@ -602,7 +653,7 @@ def main():
     st.markdown(
         """
         <div style="margin-top:2rem; color:#6b7280; font-size:0.8rem;">
-            Built by <b>Eric Ortega</b> & <b>Diya Mirji</b> · Explainable AI for everyone
+            Built by <b>Eric Ortega</b> &amp; <b>Diya Mirji</b> · For AIPI 590: Emerging Trends in Explainable AI
         </div>
         """,
         unsafe_allow_html=True,
