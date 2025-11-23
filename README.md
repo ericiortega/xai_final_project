@@ -1,9 +1,12 @@
 # Explainable Sentiment Analyzer (BERT + SHAP)
 
-An interactive Streamlit app for **interpretable sentiment analysis**.  
+**Live app:** https://xai-sentiment-analyzer.streamlit.app/
+
+An interactive Streamlit app for **interpretable sentiment analysis** using a pretrained **BERT** model and **SHAP** token attributions.
+
 Users can:
 
-- **Analyze a single review** and see a word-level SHAP heatmap.
+- **Analyze a single review** and see a word‑level SHAP heatmap.
 - **Upload a CSV of many reviews** to score sentiment in bulk and download results.
 
 Built for **AIPI 590: Emerging Trends in Explainable AI**.
@@ -97,7 +100,7 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-Your `requirements.txt` should include:
+`requirements.txt`:
 
 ```txt
 streamlit>=1.32
@@ -122,6 +125,31 @@ Open it in your browser.
 
 ---
 
+## Deploying on Streamlit Community Cloud
+
+This project is already deployed at:
+
+**https://xai-sentiment-analyzer.streamlit.app/**
+
+To deploy your own fork:
+
+1. Push your code to a **public GitHub repo**.
+2. Go to **https://streamlit.io/cloud** and click **“New app”**.
+3. Select your repo + branch.
+4. For **Main file path**, enter:
+
+   ```
+   app/app.py
+   ```
+
+5. Click **Deploy**.
+
+### Visibility / access
+- If your GitHub repo is **public**, anyone with the app link can access it.
+- If your repo is **private**, you’ll need a paid Streamlit plan or invite specific users.
+
+---
+
 ## Troubleshooting
 
 ### Model download on first run
@@ -135,6 +163,10 @@ pip install --upgrade pip
 pip install -r requirements.txt --force-reinstall
 ```
 
+### Plotly errors in “Top Drivers”
+If SHAP returns no meaningful token variation for a very short input, the bar chart may be skipped automatically.  
+Try a longer sentence.
+
 ### Large CSVs
 Batch mode limits rows for speed and safety.  
 Use the slider to increase/decrease max rows analyzed.
@@ -144,7 +176,7 @@ Use the slider to increase/decrease max rows analyzed.
 ## How SHAP Explanations Work (High level)
 
 - The BERT model outputs a positive probability `p_pos`.
-- SHAP computes **token-level contributions**:
+- SHAP computes **token‑level contributions**:
   - **Green tokens** push sentiment positive.
   - **Orange tokens** push sentiment negative.
 
@@ -154,5 +186,3 @@ Use the slider to increase/decrease max rows analyzed.
 
 - **Eric Ortega Rodriguez**
 - **Diya Mirji**
-
----
