@@ -122,7 +122,7 @@ Open it in your browser.
 
 ---
 
-## Notes / Troubleshooting
+## Troubleshooting
 
 ### Model download on first run
 The first time you run the app, HuggingFace will download the BERT model.  
