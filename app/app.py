@@ -502,7 +502,7 @@ def plot_shap_bars(tokens, shap_values):
             gridcolor="rgba(148,163,184,0.12)",
             zerolinecolor="rgba(148,163,184,0.35)",
             tickfont=dict(color="#cbd5e1"),
-            titlefont=dict(color="#cbd5e1"),
+            #titlefont=dict(color="#cbd5e1"),
         ),
         yaxis=dict(tickfont=dict(color="#e2e8f0", size=13)),
         showlegend=False,
