@@ -1,7 +1,8 @@
-streamlit
-transformers
-torch
-shap
-numpy
-altair
-pandas
+streamlit>=1.32
+transformers>=4.38
+torch>=2.1
+shap>=0.45
+numpy>=1.24
+pandas>=2.0
+plotly>=5.18
+scikit-learn>=1.3
