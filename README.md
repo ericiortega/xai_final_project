@@ -147,13 +147,12 @@ Use the slider to increase/decrease max rows analyzed.
 - SHAP computes **token-level contributions**:
   - **Green tokens** push sentiment positive.
   - **Orange tokens** push sentiment negative.
-- The heatmap is rendered inline so users can interpret *why* the model predicted what it did.
 
 ---
 
 ## Authors
 
-- **Eric Ortega**
+- **Eric Ortega Rodriguez**
 - **Diya Mirji**
 
 ---
