@@ -935,7 +935,7 @@ def main():
     st.markdown(
         """
         <div style="margin-top:1.8rem; color:#6b7280; font-size:0.8rem;">
-            Built by <b>Eric Ortega</b> &amp; <b>Diya Mirji</b> · For AIPI 590: Emerging Trends in Explainable AI
+            Built by <b>Eric Ortega Rodriguez</b> &amp; <b>Diya Mirji</b> · For AIPI 590: Emerging Trends in Explainable AI
         </div>
         """,
         unsafe_allow_html=True,
