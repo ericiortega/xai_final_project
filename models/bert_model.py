@@ -68,7 +68,7 @@ def predict_label(text, threshold=0.5):
 
 def positivity_score(text):
     """
-    Here we will convert positive probability into a 0–100 positivity score.
+    Here we will convert positive probability into a 0–100 positivity score
     Also returns the raw positive probability
     """
     _, p_pos = predict_label(text)
