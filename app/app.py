@@ -1,4 +1,11 @@
 # app.py
+
+
+# AI usage note:
+# Portions of this file were drafted with assistance from ChatGPT (OpenAI) on
+# Nov 22–23, 2025. This includes the CSS styling structure, and visualization formatting. The ideas were ours and all output 
+# given by the AIw ere reviewed, modified, and validated by us.
+
 import sys
 import os
 import pandas as pd

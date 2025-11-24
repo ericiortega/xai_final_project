@@ -1,5 +1,8 @@
 # models/shap_explainer.py
 
+# AI Assistance Disclosure:
+# ChatGPT was used to help refine code, specifcially the `get_token_importances` function and its structure
+# All code was reviewed and adjusted by us when needed. 
 import shap
 from models.bert_model import tokenizer, predict_proba
 
@@ -9,8 +12,8 @@ masker = shap.maskers.Text(tokenizer)
 
 def _model_positive_class(texts):
     """
-    Wrapper that returns P(positive) only, for SHAP.
-    SHAP expects shape (n_samples,).
+    Wrapper that returns P(positive) only, for SHAP
+    SHAP expects shape (n_samples,)
     """
     probs = predict_proba(texts)
     # return positive class probability
@@ -23,14 +26,14 @@ explainer = shap.Explainer(_model_positive_class, masker)
 
 def get_token_importances(text):
     """
-    Compute SHAP values for a single text.
+    Compute SHAP values for a single text
 
     Returns:
         tokens: list of token strings
         shap_values: list of float contributions (same length)
         base_value: model's expected value (float)
     """
-    shap_values = explainer([text])  # list of one text
+    shap_values = explainer([text])  
     explanation = shap_values[0]
 
     tokens = list(explanation.data)

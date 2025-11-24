@@ -1,7 +1,12 @@
+#AI Assistance Disclosure:
+#ChatGPT was used to help refine the structure of the `predict_proba` function and formatting of other sections. 
+#All code was reviewed and adjusted by us.
+
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import numpy as np
 import torch
 
+# model we are using 
 MODEL_NAME = "distilbert-base-uncased-finetuned-sst-2-english"
 
 # load tokenizer
@@ -13,9 +18,9 @@ label_names = ["negative", "positive"]
 
 def predict_proba(texts):
     """
-    Predict sentiment probabilities for a list of texts.
+    Predict sentiment probabilities for a list of texts
 
-    Accepts:
+    Inputs we can accept:
         - single string
         - list/tuple of strings
         - numpy array of strings (SHAP case)
@@ -23,16 +28,16 @@ def predict_proba(texts):
     Returns: np.ndarray of shape (n_samples, 2)
              columns = [P(negative), P(positive)]
     """
-    # normalize input to a Python list of strings
+    # normalize input
     if isinstance(texts, str):
         texts = [texts]
     else:
-        # for lists, tuples, numpy arrays, etc.
+        # for lists, tuples, etc 
         try:
-            #  will work for numpy arrays and other iterables
+            #  will work for numpy arrays
             texts = [str(t) for t in texts]
         except TypeError:
-            # fallback: treat as single item
+            # fallback will be to treat as single item
             texts = [str(texts)]
 
     inputs = tokenizer(
@@ -53,7 +58,7 @@ def predict_proba(texts):
 
 def predict_label(text, threshold=0.5):
     """
-    Predict the label ('positive' or 'negative') for a single text
+    Here we predict the label ('positive' or 'negative') for a single text
     """
     probs = predict_proba(text)[0]
     p_pos = probs[1]
@@ -63,7 +68,7 @@ def predict_label(text, threshold=0.5):
 
 def positivity_score(text):
     """
-    Convert positive probability into a 0–100 positivity score.
+    Here we will convert positive probability into a 0–100 positivity score.
     Also returns the raw positive probability
     """
     _, p_pos = predict_label(text)
