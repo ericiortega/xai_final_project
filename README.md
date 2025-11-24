@@ -45,8 +45,6 @@ xai_final_project/
 │   ├── __init__.py
 │   ├── bert_model.py         # BERT sentiment model + scoring helpers
 │   ├── shap_explainer.py     # SHAP token attribution
-│   ├── parse_sentence.py     # (project-specific helper)
-│   └── pca_sentiment.py      # (project-specific helper)
 ├── data/
 │   └── sample_reviews.csv    # Example file for batch mode
 ├── requirements.txt
