@@ -1,8 +1,3 @@
-# models/shap_explainer.py
-
-# AI Assistance Disclosure:
-# ChatGPT was used to help refine code, specifcially the `get_token_importances` function and its structure
-# All code was reviewed and adjusted by us when needed. 
 import shap
 from models.bert_model import tokenizer, predict_proba
 

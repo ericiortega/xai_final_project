@@ -1,7 +1,3 @@
-#AI Assistance Disclosure:
-#ChatGPT was used to help refine the structure of the `predict_proba` function and formatting of other sections. 
-#All code was reviewed and adjusted by us.
-
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import numpy as np
 import torch
